@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android.quizoff">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CreateAccountActivity"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MainQuizActivity" />
+        <activity android:name=".AddFriendActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.quizoff.MainQuizActivity" />
+        </activity>
+        <activity android:name=".FriendRequestsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.quizoff.MainQuizActivity" />
+        </activity>
+        <activity
+            android:name=".FriendsActivity"
+            android:launchMode="singleInstance" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.quizoff.MainQuizActivity" />
+        </activity>
+        <activity android:name=".GameActivity" />
+        <activity
+            android:name=".ChallengesActivity"
+            android:launchMode="singleInstance" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.quizoff.MainQuizActivity" />
+        </activity>
+        <activity android:name=".ReplyToChallengeActivity" />
+        <activity android:name=".NotificationsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.quizoff.MainQuizActivity" />
+        </activity>
+
+        <receiver android:name=".QuizOffWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+
+                <action android:name="com.example.android.quizoff.DATA_FETCHED"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/quiz_off_widget_provider_info" />
+        </receiver>
+
+        <!-- Configuration activity which gets
+             launched  on widget being placed on
+             homescreen for first time  -->
+        <activity android:name=".ConfigActivity" >
+            <!-- This intent is required to be recognized
+                 this activity as appwidget configuration activity -->
+            <intent-filter>
+                <action android:name=
+                    "android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".RemoteFetchService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <service
+            android:name=".WidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+
+    </application>
+
+</manifest>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/background"
+    tools:context="com.example.android.quizoff.LoginActivity">
+
+    <EditText
+        android:id="@+id/email_create"
+        android:layout_width="wrap_content"
+        android:hint="@string/choose_email"
+        android:inputType="textEmailAddress"
+        android:layout_height="wrap_content" />
+
+
+    <EditText
+        android:id="@+id/password_create"
+        android:hint="@string/choose_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="wrap_content"
+        android:text="@string/sign_up"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        android:id="@+id/create_account_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
+
+
+</LinearLayout>
